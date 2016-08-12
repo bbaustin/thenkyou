@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="193px" height="227px" viewBox="0 0 193 227" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Keitei</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Keitei" transform="translate(1.000000, 0.000000)" stroke="#E2B4FA">
+            <polygon id="Path-30" points="117 0.5 187 22 165 139 79.5 217 0.5 188 95.5 112.5"></polygon>
+            <path d="M5.68434189e-14,198 C5.68434189e-14,198 -1.27609295e-13,188 -1.42108547e-14,188 C9.92704183e-14,188 79.5,218 79.5,216.5 C79.5,215.672389 164,139.5 165,138.5 C166,137.5 187,22 187,22 C187,22 191,31.5 191,31.5 L170,144.5 L80,226 L5.68434189e-14,198 Z" id="Path-30-Copy"></path>
+            <polygon id="Path-32" points="122.5 11.5 178 28.5 160 121.5 106.5 100"></polygon>
+            <path d="M95.5,112.5 L164,139.5 L95.5,112.5 Z" id="Path-33"></path>
+            <polyline id="Path-34" points="87.5 125.5 131.5 142.5 80 191.5 78 197 131.5 147"></polyline>
+            <polyline id="Path-35" points="78 198 31.5 179.5 78.207682 134.840901 88.5 125"></polyline>
+            <path d="M131,147 L131,143" id="Path-36"></path>
+            <path d="M77,136 L118.5,153" id="Path-37"></path>
+            <path d="M65,147 L106.5,164" id="Path-37-Copy"></path>
+            <path d="M54,158 L95.5,175" id="Path-37-Copy-2"></path>
+            <path d="M43,168 L84.5,185" id="Path-37-Copy-3"></path>
+            <path d="M100,129.5 L48.5,183.5" id="Path-41"></path>
+            <path d="M116,136.5 L64.5,190.5" id="Path-41-Copy"></path>
+        </g>
+    </g>
+</svg>

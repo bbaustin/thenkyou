@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="147px" height="134px" viewBox="0 0 147 134" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.2 (29753) - http://www.bohemiancoding.com/sketch -->
+    <title>Orange</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Orange" transform="translate(1.000000, 0.000000)">
+            <path d="M5.40543713,1.07050909 L145.217797,113.644946 C145.217797,113.644946 86.0110238,155.773416 33.9232353,116.810455 C-18.1645532,77.8474949 5.40543713,1.07050909 5.40543713,1.07050909 L5.40543713,1.07050909 Z" id="Path-1" stroke="#FFB147"></path>
+            <path d="M5.64893916,0.970478062 L145.113711,113.396532 C145.113711,113.396532 95.0502087,144.296752 43.390167,105.014734 C-8.26987479,65.7327158 5.64893916,0.970478062 5.64893916,0.970478062 L5.64893916,0.970478062 Z" id="Path-1-Copy" stroke="#FFB147"></path>
+            <path d="M61.5,46 C61.5,46.5 61,63.5 78,59.5" id="Path-3" stroke="#FFB148"></path>
+            <path d="M60.5,47.5 L7.5,42.5" id="Line" stroke="#FFB148" stroke-linecap="square"></path>
+            <path d="M62.5,53.5 L21.5,82.5" id="Line" stroke="#FFB148" stroke-linecap="square"></path>
+            <path d="M69.5,59.5 L57.5,113.5" id="Line" stroke="#FFB148" stroke-linecap="square"></path>
+            <path d="M74.5,60.5 L103.5,124.5" id="Line" stroke="#FFB148" stroke-linecap="square"></path>
+        </g>
+    </g>
+</svg>
