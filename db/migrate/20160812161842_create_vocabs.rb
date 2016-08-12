@@ -13,6 +13,6 @@ class CreateVocabs < ActiveRecord::Migration
       t.string :posLang1
       t.string :posLang2
       t.string :posLang3
-    end
+    end    
   end
 end

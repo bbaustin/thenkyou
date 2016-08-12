@@ -10,14 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811145003) do
+ActiveRecord::Schema.define(version: 20160812161852) do
+
+  create_table "libraries", force: :cascade do |t|
+    t.integer "vocab_id"
+    t.integer "reading_id"
+  end
 
   create_table "readings", force: :cascade do |t|
     t.string  "content"
     t.integer "difficulty"
-    t.string  "rating"
     t.string  "language"
-    t.string  "vocabConnection"
   end
 
   create_table "users", force: :cascade do |t|

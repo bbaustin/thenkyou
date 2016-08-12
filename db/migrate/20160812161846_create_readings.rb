@@ -4,7 +4,6 @@ class CreateReadings < ActiveRecord::Migration
       t.string   :content
       t.integer  :difficulty 
       t.string   :language
-      
     end
   end
 end

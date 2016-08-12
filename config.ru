@@ -9,6 +9,7 @@ ActiveRecord::Base.establish_connection(
 # models
 require './app/models/user'
 require './app/models/reading'
+require './app/models/library'
 require './app/models/vocab'
 
 # controllers

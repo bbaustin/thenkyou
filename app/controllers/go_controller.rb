@@ -3,7 +3,7 @@ class GoController < ApplicationController
 
 
   post '/adminreading' do 
-    reading = Reading.create content: params['content'], difficulty: params['difficulty'], rating: params['rating'], language: params['language'], vocabConnection: params['vocabConnection']
+    reading = Reading.create content: params['content'], difficulty: params['difficulty'], language: params['language']
     erb :adminreading
   end
 
@@ -22,7 +22,6 @@ class GoController < ApplicationController
   get '/adminvocab' do 
     erb :adminvocab
   end
-
 
 	get '/?' do
     erb :go
