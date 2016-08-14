@@ -35,19 +35,19 @@ class HomeController < ApplicationController
   post '/?' do 
     user = User.find_by username: params['username']
     if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['nativeLanguage'] == '')
-      @signup_message = 'Please complete all fields' 
+      @signup_message = 'Please complete all fields!' 
       erb :home 
     elsif user 
-      @signup_message =  'Username already taken :(' 
+      @signup_message =  'Username already taken T_T' 
       erb :home 
     else 
       password = BCrypt::Password.create(params['password'])
       user = User.create username: params['username'], password: password, email: params['email'], nativeLanguage: params['nativeLanguage']
       session[:is_logged_in] = true
       session[:user_id] = user.id 
-        puts ' ------------------------- '
+        puts ' -----session.id------- '
         puts session.id
-        puts ' ------------------------- '
+        puts ' -----session[:user_id]------ '
         puts session[:user_id]    
       redirect '/go'
     end

@@ -4,8 +4,12 @@ class GoController < ApplicationController
 ##########################
   post '/adminreading' do 
     @reading = Reading.create content: params['content'], difficulty: params['difficulty'], language: params['language']
-    p Reading 
-    Binding.pry
+    @library = Library.create reading_id: @reading['id'] 
+    p 'vvvvvvvvvv this is the new library info vvvvvvvvvvvv'
+    p @reading['id']
+    # p @library 
+    # p Library 
+    # Binding.pry
     erb :adminreading
   end
 
