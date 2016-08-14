@@ -11,46 +11,59 @@ class GoController < ApplicationController
     @vocabs = Vocab.all 
     if @reading.language == "English"
       @vocabs.each do |v|
-        # p "---------------------------------------"
-        # puts @reading.content
-        # p v.wordLang1
-        # p v.wordLang1
-        # p @reading.content.index()
-        # p "---------------------------------------"
         if v.wordLang1
           if @reading.content.index(v.wordLang1) != nil 
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
       end
-    elsif @reading.language == "日本語"
+    elsif @reading.language == "Deutsch"
       @vocabs.each do |v|
-        if @reading.content.include? v.wordLang3
-          @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
+        if v.wordLang2
+          if @reading.content.index(v.wordLang1) != nil 
+            @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
+          end
+        end
+      end
+    else # @reading.language == "日本語"
+      @vocabs.each do |v|
+        if v.wordLang3 
+          if @reading.content.index(v.wordLang3) != nil
+            @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
+          end
         end
       end
     end 
-
-
-    # puts stuff here if you want
     # Binding.pry
     erb :adminreading
   end
 
   get '/adminreading' do
-    p 'yooooooo!~~~~~~~~~~~'
-    @vocabs = Vocab.all 
-    @vocabs.each do |v|
-      puts v.wordLang1
-      puts v.wordLang2
-      puts v.wordLang3
-    end
     erb :adminreading
   end
 ###
   post '/adminvocab' do
+    if (params['wordLang1'] == "") 
+      params['wordLang1'] = "noenglishwordprovided" 
+    elsif (params['wordLang2'] == "") 
+      params['wordLang2'] = "nogermanwordprovided" 
+    elsif (params['wordLang3'] == "")
+      params['wordLang3'] = "nojapanesewordprovided"
+    end
     @vocab = Vocab.create wordLang1: params['wordLang1'], wordLang2: params['wordLang2'], wordLang3: params['wordLang3'], defLang1: params['defLang1'], defLang2: params['defLang2'], defLang3: params['defLang3'], usageLang1: params['usageLang1'], usageLang2: params['usageLang2'], usageLang3: params['usageLang3'], posLang1: params['posLang1'], posLang2: params['posLang2'], posLang3: params['posLang3']
-    @library = Library.create vocab_id: @vocab['id'] 
+    @readings = Reading.all 
+    # loop through the content of every reading
+    # if wordLang1, wordLang2, or wordLang3 is in the reading
+    # create a Library with both of those. 
+    @readings.each do |r| 
+      if r.content
+        if r.content.include?(@vocab.wordLang1) || r.content.include?(@vocab.wordLang2) || r.content.include?(@vocab.wordLang3) 
+          @library = Library.create reading_id: r['id'], vocab_id: @vocab['id']
+        else 
+          puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...nope!"
+        end
+      end
+    end
     erb :adminvocab
   end
 
