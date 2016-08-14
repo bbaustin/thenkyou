@@ -3,6 +3,7 @@
     <h2> Homepage </h2>
 
     <div class="center">
+    <%= @signup_message %>
       <form method="post" action="/">
         <input type="text" name="username" placeholder="Username" /><br />
 
@@ -11,14 +12,10 @@
         <input type="email" name="email" placeholder="E-Mail" /><br />
 
 
-      <div class="button" id="eng">English</div>
-      <div class="button">Deutsch</div>
-      <div class="button" id="jpn">日本語</div>
-<!--         <select name="nativeLanguage" />
-          <option value = "English">English</option>
-          <option value = "Deutsch">Deutsch</option>
-          <option value = "日本語">日本語</option>
-        </select><br /> -->
+        <div class="langButton" id="eng">English</div>
+        <div class="langButton">Deutsch</div>
+        <div class="langButton" id="jpn">日本語</div>
+
         <br/>
         <button>Log in</button>  
       </form>

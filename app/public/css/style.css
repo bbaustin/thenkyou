@@ -41,7 +41,7 @@ input[type="email"] {
   font-size: 1em;
   background-color: transparent;
 }
-.button {
+.langButton {
   margin: 0 auto;
   margin-bottom: 15px;
   width: 100px;
@@ -77,11 +77,6 @@ button {
 }
 .jpn-container {
   visibility: hidden;
-}
-#vocabList {
-  background-color: #FFD60E;
-  width: 300px;
-  height: 300px;
 }
 .container {
   overflow: hidden;

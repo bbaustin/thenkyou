@@ -5,6 +5,7 @@ gem 'json', '~> 2.0', '>= 2.0.2'
 gem 'sinatra-activerecord', '~> 2.0', '>= 2.0.10', require: 'sinatra/activerecord'
 gem 'pry'
 gem 'rake', '~> 11.2', '>= 11.2.2'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
 
 group :development do  
   gem 'rerun', '~> 0.11.0'
