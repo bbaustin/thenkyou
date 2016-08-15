@@ -76,6 +76,18 @@ class GoController < ApplicationController
 
   get '/:id' do 
     @reading = Reading.find params['id']
+    @vocabs = Vocab.all 
+    @libraries = Library.all 
+    # puts @libraries[58].vocab_id
+    # puts '~~~~~~~~~~~~~~~~~~~~~~~~~~'
+    # puts @vocabs[@libraries[58].vocab_id].wordLang1
+    @vocab_list = []
+    @libraries.each do |lib| 
+      if lib.reading_id == @reading.id
+        @vocab_list.push([@vocabs[lib.vocab_id].wordLang1])
+      end
+    end  
+    puts @vocab_list
     erb :reading 
   end 
 
