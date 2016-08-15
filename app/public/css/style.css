@@ -78,6 +78,10 @@ button {
 .jpn-container {
   visibility: hidden;
 }
+#reading-main {
+  margin: 15px;
+  padding: 5px;
+}
 .container {
   overflow: hidden;
 }
