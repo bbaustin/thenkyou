@@ -74,7 +74,7 @@ class GoController < ApplicationController
 ##########################
 
 
-  get '/:id' do 
+  post '/:id' do |id|
     @reading = Reading.find params['id']
     @vocabs = Vocab.all 
     @libraries = Library.all 
@@ -84,13 +84,19 @@ class GoController < ApplicationController
     @vocab_list = []
     @libraries.each do |lib| 
       if lib.reading_id == @reading.id
-        @vocab_list.push([@vocabs[(lib.vocab_id - 1)].wordLang1])
+        @vocab_list.push(@vocabs[(lib.vocab_id - 1)])
         puts "lib.id: #{lib.id}"
         puts "@reading.id: #{@reading.id}"
         puts "lib.vocab_id: #{lib.vocab_id}"
       end
     end  
     puts @vocab_list
+    content_type :json 
+    @vocab_list.to_json
+  end 
+   
+  get '/:id' do  
+    @reading = Reading.find params['id']    
     erb :reading 
   end 
 

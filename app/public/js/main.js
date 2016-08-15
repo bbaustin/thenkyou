@@ -24,6 +24,8 @@ function genColor () {
 }
 genColor();
 
+
+// lang stuff... eventualyl with cookies? 
 var chooser = "English";
 
 $("#eng").click(function() {
@@ -37,21 +39,38 @@ $("#jpn").click(function() {
   $(this).css({'backgroundColor':'this.borderColor'});
 })
 
-  $.ajax({
-    url: '/go',
-    type: 'post',
-    dataType: 'json',
-    success: function(response) {
-      console.log(typeof response);
-      console.log(response);
-      for (var i = 0; i < response.length; i++) {
-        $('ul').append('<li>' + response[i] + '</li>');
-      } 
-    },
-    error: function(error) {
-      console.log("error: " + error);
-    }
-  });
+// to genreading
+  // $.ajax({
+  //   url: '/go/', // dynamic url. how? 
+  //   type: 'post',
+  //   dataType: 'json',
+  //   success: function(response) {
+  //     console.log(typeof response);
+  //     console.log(response);
+  //     console.log("new response");
+  //   },
+  //   error: function(error) {
+  //     console.log("error: " + error);
+  //   }
+  // });
+
+
+// to gengo 
+  // $.ajax({
+  //   url: '/go',
+  //   type: 'post',
+  //   dataType: 'json',
+  //   success: function(response) {
+  //     console.log(typeof response);
+  //     console.log(response);
+  //     for (var i = 0; i < response.length; i++) {
+  //       $('ul').append('<li>' + response[i] + '</li>');
+  //     } 
+  //   },
+  //   error: function(error) {
+  //     console.log("error: " + error);
+  //   }
+  // });
 
 
 
