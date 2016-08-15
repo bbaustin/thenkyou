@@ -84,7 +84,10 @@ class GoController < ApplicationController
     @vocab_list = []
     @libraries.each do |lib| 
       if lib.reading_id == @reading.id
-        @vocab_list.push([@vocabs[lib.vocab_id].wordLang1])
+        @vocab_list.push([@vocabs[(lib.vocab_id - 1)].wordLang1])
+        puts "lib.id: #{lib.id}"
+        puts "@reading.id: #{@reading.id}"
+        puts "lib.vocab_id: #{lib.vocab_id}"
       end
     end  
     puts @vocab_list
