@@ -1,6 +1,7 @@
 console.log('background.js is loaded');
 
 var imageList = ['Cookie', 'Keitei', 'Kitty', 'Megane', 'Orange', 'Rickenbacker', 'Sock'];
+// toothbrush, old computer, old mouse, overeasy egg, soccer ball
 
 function xyGen() {
   var x = (Math.random()) * $(window).width();

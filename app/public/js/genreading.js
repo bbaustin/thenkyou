@@ -20,14 +20,14 @@ var splitting = function(vocab, content) {
     if (content.indexOf(vocab[i].wordLang1) !== -1) { // NEW!!!!! FOR ENGLISH 
       strArr.push(content.split(vocab[i].wordLang1)); //adds everything but vocabs
       strArr.push(['<span class="vocab">' + vocab[i].wordLang1 + '</span>']); //adds vocabs [with style]
-      //console.log(strArr);
       content = combining(strArr);
+      $('#vocab-box').append('<ul>' + vocab[i].wordLang1 + '</ul>');
+
     }
 
   }
   return strArr;
 };
-
 
 
 
@@ -50,10 +50,13 @@ $.ajax({
   }
 });
 
+// fix dis VVVVVVV 
+var vocabs = document.getElementsByClassName('vocab');
+for (var i = 0; i < vocabs.length; i++) {
+  $(vocabs[i]).text().click(function() {
+    $('#vocab-box').append(this.wordLang1);
+    $('#vocab-box').append(this.wordLang3);
+    console.log('hey!');
+  })
+}
 
-
-
-
-// var showParagraph = combining(splitting(response, $("reading-main").text()));
-// console.log(showParagraph);
-// $('#readingPassage').append(showParagraph);

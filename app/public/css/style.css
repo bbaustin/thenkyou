@@ -82,6 +82,9 @@ button {
   margin: 15px;
   padding: 5px;
 }
+#vocab-box {
+  border: 1px solid;
+}
 .container {
   overflow: hidden;
 }
