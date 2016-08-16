@@ -1,4 +1,3 @@
-console.log('main.js is loaded');
 
 function genColor () {
   var colorList = ["#FD8D8D", "#FFB148", "#FFD60E", "#7CE938", "#52BFFF", "#E2B4F9", "#979797"];

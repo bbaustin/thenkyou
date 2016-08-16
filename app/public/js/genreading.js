@@ -11,52 +11,43 @@ var combining = function(splitArray) {
 
 var splitting = function(vocab, content) {
   var strArr = [];
-  console.log(vocab.length);
-  console.log(vocab);
-  console.log(typeof vocab);
-  console.log(content);
-  console.log(typeof content);
   for (var i = 0; i < vocab.length; i++){
     if (content.indexOf(vocab[i].wordLang1) !== -1) { // NEW!!!!! FOR ENGLISH 
       strArr.push(content.split(vocab[i].wordLang1)); //adds everything but vocabs
-      strArr.push(['<span class="vocab">' + vocab[i].wordLang1 + '</span>']); //adds vocabs [with style]
+      strArr.push(['<a class="vocab" href="#">' + vocab[i].wordLang1 + '</a>']); //adds vocabs [with style]
       content = combining(strArr);
       $('#vocab-box').append('<ul>' + vocab[i].wordLang1 + '</ul>');
-
     }
-
   }
   return strArr;
 };
 
 
 
-var myId = parseInt($("#myId").text())
-
+var myId = parseInt($("#myId").text());
 $.ajax({
   url: '/go/' + myId, // dynamic url
   type: 'post',
   dataType: 'json',
   success: function(response) {
-    console.log(typeof response);
-    console.log(response);
-    console.log("new response");
     var showParagraph = combining(splitting(response, $("#reading-main").text()));
     console.log(showParagraph);
     $("#reading-main").html(showParagraph);
+
+    var addedVocabs = $('.vocab');
+    for (var i = 0; i < addedVocabs.length; i++) {
+      console.log(addedVocabs[i]);
+      $(addedVocabs[i]).click(function() {
+        console.log(this);
+      });
+    }
   },
   error: function(error) {
     console.log("error: " + error);
   }
 });
 
-// fix dis VVVVVVV 
-var vocabs = document.getElementsByClassName('vocab');
-for (var i = 0; i < vocabs.length; i++) {
-  $(vocabs[i]).text().click(function() {
-    $('#vocab-box').append(this.wordLang1);
-    $('#vocab-box').append(this.wordLang3);
-    console.log('hey!');
-  })
-}
+// fix dis VVVVVVV
+
+
 

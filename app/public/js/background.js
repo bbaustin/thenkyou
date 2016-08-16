@@ -1,4 +1,3 @@
-console.log('background.js is loaded');
 
 var imageList = ['Cookie', 'Keitei', 'Kitty', 'Megane', 'Orange', 'Rickenbacker', 'Sock'];
 // toothbrush, old computer, old mouse, overeasy egg, soccer ball
@@ -31,7 +30,7 @@ function appendSVG() {
 
     $('.container').append('<img class=' + pic + ' src="/../img/' + pic + '.svg">');
     
-      console.log($("." + pic).width());
+      // console.log($("." + pic).width());
     $("." + pic).css({
       'position': 'absolute',
       'left': (x - $("." + pic).width()) + 'px',
