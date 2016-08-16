@@ -103,7 +103,7 @@ class GoController < ApplicationController
   post '/' do 
     @reading_list = []
     Reading.all.each do |reading|
-      @reading_list.push(["#{reading['id']}. #{reading['content']}"])
+      @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['content']}</a>"])
     end
     puts "Why is this showing up during adminreading POST?"
     @reading_list.to_json

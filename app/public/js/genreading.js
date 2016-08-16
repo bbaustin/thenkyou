@@ -13,14 +13,15 @@ var splitting = function(vocab, content) {
   var strArr = [];
   for (var i = 0; i < vocab.length; i++){
     if (content.indexOf(vocab[i].wordLang1) !== -1) { // NEW!!!!! FOR ENGLISH 
-      strArr.push(content.split(vocab[i].wordLang1)); //adds everything but vocabs
-      strArr.push(['<a class="vocab" href="#">' + vocab[i].wordLang1 + '</a>']); //adds vocabs [with style]
+      strArr.push(content.split(vocab[i].wordLang1)); 
+      strArr.push(['<span class="vocab">' + vocab[i].wordLang1 + '</span>']); 
       content = combining(strArr);
       $('#vocab-box').append('<ul>' + vocab[i].wordLang1 + '</ul>');
     }
   }
   return strArr;
 };
+
 
 
 
@@ -31,23 +32,34 @@ $.ajax({
   dataType: 'json',
   success: function(response) {
     var showParagraph = combining(splitting(response, $("#reading-main").text()));
-    console.log(showParagraph);
     $("#reading-main").html(showParagraph);
+    
+    console.log(response); // showing up with random stuff if no vocab found. 
 
-    var addedVocabs = $('.vocab');
-    for (var i = 0; i < addedVocabs.length; i++) {
-      console.log(addedVocabs[i]);
-      $(addedVocabs[i]).click(function() {
-        console.log(this);
-      });
-    }
+    $('.vocab').click(function() {
+      console.log(this.innerHTML);
+      for (var r = 0; r < response.length; r++) {
+        if (this.innerHTML === response[r].wordLang1) {
+          console.log(response[r].id);
+          $('#vocab-box').html('<button class="vocab-return">back</button><ul> <li>' + response[r].wordLang3 + '</li><li>anotherthing</li></ul>');
+        }
+      }
+    })
+
+
+
   },
   error: function(error) {
     console.log("error: " + error);
   }
 });
 
-// fix dis VVVVVVV
-
-
-
+    $('.vocab-return').click(function() {
+      console.log('hey');
+      // don't know why this doesn't work but it's not extremely important
+      // $('#vocab-box').html('<ul>');
+      // for (var r = 0; r < response.length; r++) { 
+      //   $('#vocab-box').append('<li>' + response[r] + '</li>');
+      // }
+      // $('#vocab-box').append('</ul>');     
+    })

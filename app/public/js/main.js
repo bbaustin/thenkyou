@@ -30,46 +30,16 @@ var chooser = "English";
 $("#eng").click(function() {
   chooser = "English";
   $("h1").html("thenkyou");
+  console.log(chooser);
+  this.style.backgroundColor = this.style.borderColor;
+  $("#jpn").css('backgroundColor', 'transparent');
 })
 
 $("#jpn").click(function() {
   chooser = "日本語";
   $("h1").html('テェンキョウ');
-  $(this).css({'backgroundColor':'this.borderColor'});
+  this.style.backgroundColor = this.style.borderColor;
+  $("#eng").css('backgroundColor', 'transparent');
+  console.log(chooser);
 })
-
-// to genreading
-  // $.ajax({
-  //   url: '/go/', // dynamic url. how? 
-  //   type: 'post',
-  //   dataType: 'json',
-  //   success: function(response) {
-  //     console.log(typeof response);
-  //     console.log(response);
-  //     console.log("new response");
-  //   },
-  //   error: function(error) {
-  //     console.log("error: " + error);
-  //   }
-  // });
-
-
-// to gengo 
-  // $.ajax({
-  //   url: '/go',
-  //   type: 'post',
-  //   dataType: 'json',
-  //   success: function(response) {
-  //     console.log(typeof response);
-  //     console.log(response);
-  //     for (var i = 0; i < response.length; i++) {
-  //       $('ul').append('<li>' + response[i] + '</li>');
-  //     } 
-  //   },
-  //   error: function(error) {
-  //     console.log("error: " + error);
-  //   }
-  // });
-
-
 
