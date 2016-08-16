@@ -103,9 +103,14 @@ class GoController < ApplicationController
   post '/' do 
     @reading_list = []
     Reading.all.each do |reading|
-      @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['content']}</a>"])
+      puts reading.language
+      unless reading.language == session[:nativeLanguage]
+        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['content']}</a>"])
+      end
     end
-    puts "Why is this showing up during adminreading POST?"
+    p session
+    puts session[:nativeLanguage]
+    puts "^^^ Show ^^^"
     @reading_list.to_json
   end  
 

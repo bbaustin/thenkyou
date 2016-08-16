@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
 
-
-
+###############
+# admin stuff
   get '/api-library' do 
     @library = Library.all 
     @library.to_json
@@ -21,7 +21,8 @@ class HomeController < ApplicationController
     @user = User.all 
     @user.to_json 
   end
-
+# end admin stuff
+###############
 
 
   get '/logout/?' do
@@ -45,10 +46,13 @@ class HomeController < ApplicationController
       user = User.create username: params['username'], password: password, email: params['email'], nativeLanguage: params['nativeLanguage']
       session[:is_logged_in] = true
       session[:user_id] = user.id 
+      session[:nativeLanguage] = user.nativeLanguage
         puts ' -----session.id------- '
         puts session.id
         puts ' -----session[:user_id]------ '
-        puts session[:user_id]    
+        puts session[:user_id]
+        puts ' -----session[:nativeLanguage]------'
+        puts session[:nativeLanguage]
       redirect '/go'
     end
   end
