@@ -20,9 +20,18 @@
         <br/>
         <button>Log in</button>  
       </form>
-        
+    </div>
 
-    
+    <div class="center">
+    <%= @login_message %>
+      <form method="post" action="/login">
+        <input type="text" name="username" placeholder="Username" /><br />
+
+        <input type="password" name="password" placeholder="Password" /><br />
+
+        <br/>
+        <button>Log in</button>  
+      </form>
     </div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>

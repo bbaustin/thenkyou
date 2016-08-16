@@ -33,6 +33,28 @@ class HomeController < ApplicationController
     redirect '/'
   end
 
+  post '/login' do 
+    user = User.find_by username: params['username']
+    if (params['username'] == '') || (params['password'] == '')
+      @login_message = "Fill in both things!"
+      erb :home 
+    elsif !user 
+      @login_message = "Are you sure your username is right?"
+      erb :home 
+    elsif user 
+      password = BCrypt::Password.new(user.password)
+      if password == params['password']
+        session[:is_logged_in] = true
+        session[:user_id] = user.id 
+        session[:nativeLanguage] = user.nativeLanguage
+        redirect '/go'
+      else
+        @login_message = "Did you type your password wrong?"
+        erb :home 
+      end
+    end
+  end
+
   post '/?' do 
     user = User.find_by username: params['username']
     if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['nativeLanguage'] == '')
@@ -59,6 +81,7 @@ class HomeController < ApplicationController
 
   get '/?' do
     @signup_message = '' 
+    p session[:nativeLanguage]
     erb :home
   end
 
