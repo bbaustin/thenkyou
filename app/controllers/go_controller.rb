@@ -5,7 +5,7 @@ class GoController < ApplicationController
   post '/adminreading' do 
     @reading = Reading.create content: params['content'], title: params['title'], language: params['language'], difficulty: params['difficulty'], bad_words: params['bad_words'], acct_req: params['acct_req']
     # check language;
-    # check word_eng, ger,or jpn based on above
+    # check word_eng, ger, or jpn based on above
     # by looping through @reading.content and looking for the word
     # create a library with vocab_id of the found vocab.
     @vocabs = Vocab.all 
@@ -27,8 +27,8 @@ class GoController < ApplicationController
       end
     else # @reading.language == "日本語"
       @vocabs.each do |v|
-        if v.word_jpn_f   #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
-          if @reading.content.index(v.word_jpn_f) != nil    #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
+        if v.word_jpn_f || v.word_jpn_k   #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
+          if (@reading.content.index(v.word_jpn_f) != nil) || (@reading.content.index(v.word_jpn_k) != nil)    #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
@@ -44,20 +44,28 @@ class GoController < ApplicationController
 ###
   post '/adminvocab' do
     if (params['word_eng'] == "") 
-      params['word_eng'] = "noenglishwordprovided" 
-    elsif (params['word_ger'] == "") 
+      params['word_eng'] = "noenglishwordprovided"
+    end 
+    if (params['word_ger'] == "") 
       params['word_ger'] = "nogermanwordprovided" 
-    elsif (params['word_jpn_f'] == "")
-      params['word_jpn_f'] = "nojapanesewordprovided"
+    end
+    if (params['word_jpn_k'] == "")
+      params['word_jpn_k'] = "nojapanesekanjiprovided"    
+    end  
+    if (params['word_jpn_f'] == "")
+      params['word_jpn_f'] = "nojapanesefuriganaprovided"
     end
     @vocab = Vocab.create word_eng: params['word_eng'], word_ger: params['word_ger'], word_jpn_k: params['word_jpn_k'], word_jpn_f: params['word_jpn_f'], def_eng: params['def_eng'], def_ger: params['def_ger'], def_jpn: params['def_jpn'], usage_eng: params['usage_eng'], usage_ger: params['usage_ger'], usage_jpn: params['usage_jpn'], pos_eng: params['pos_eng'], pos_ger: params['pos_ger'], pos_jpn: params['pos_jpn']
+    
     @readings = Reading.all 
     # loop through the content of every reading
     # if word_eng, word_ger, or word_jpn_f is in the reading
     # create a Library with both of those. 
     @readings.each do |r| 
       if r.content
-        if r.content.include?(@vocab.word_eng) || r.content.include?(@vocab.word_ger) || r.content.include?(@vocab.word_jpn_f) 
+        ###################################################################################
+        if r.content.include?(@vocab.word_eng) || r.content.include?(@vocab.word_ger) || r.content.include?(@vocab.word_jpn_k) || r.content.include?(@vocab.word_jpn_f)
+        # if r.content.include?(@vocab.word_jpn_f)
           @library = Library.create reading_id: r['id'], vocab_id: @vocab['id']
         else 
           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...nope!"
