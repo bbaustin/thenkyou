@@ -78,6 +78,9 @@ button {
 .jpn-container {
   visibility: hidden;
 }
+#nl {
+  display: none;
+}
 #reading-main {
   margin: 15px;
   padding: 5px;

@@ -26,11 +26,11 @@ genColor();
 
 // lang stuff... eventualyl with cookies? 
 var chooser = "English";
-
 $("#eng").click(function() {
   chooser = "English";
   $("h1").html("thenkyou");
   console.log(chooser);
+  $("#nl").val("English");
   this.style.backgroundColor = this.style.borderColor;
   $("#jpn").css('backgroundColor', 'transparent');
 })
@@ -39,6 +39,7 @@ $("#jpn").click(function() {
   chooser = "日本語";
   $("h1").html('テェンキョウ');
   this.style.backgroundColor = this.style.borderColor;
+  $("#nl").val("日本語");
   $("#eng").css('backgroundColor', 'transparent');
   console.log(chooser);
 })
