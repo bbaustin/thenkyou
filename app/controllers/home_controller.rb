@@ -26,7 +26,11 @@ class HomeController < ApplicationController
 
 
   get '/logout/?' do
-    session =  nil #is this enough? or should i do each attribute? 
+    session[:is_logged_in] = false
+    session[:user_id] = nil
+    session[:native_language] = nil
+    session =  nil #is this enough? or should i do each attribute?
+
     puts ' ------------------------- '
     puts session
     puts ' ------------------------- '

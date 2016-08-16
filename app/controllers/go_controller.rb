@@ -100,9 +100,16 @@ class GoController < ApplicationController
   post '/' do 
     @reading_list = []
     Reading.all.each do |reading|
+      puts reading.acct_req
       puts reading.language
-      unless reading.language == session[:native_language]
-        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+      if session[:is_logged_in]   
+        unless reading.language == session[:native_language]
+          @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+        end
+      else #not logged in
+        unless reading.acct_req
+          @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+        end
       end
     end
     p session
