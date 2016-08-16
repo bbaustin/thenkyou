@@ -3,32 +3,32 @@ class GoController < ApplicationController
 # admin stuff
 ##########################
   post '/adminreading' do 
-    @reading = Reading.create content: params['content'], difficulty: params['difficulty'], language: params['language']
+    @reading = Reading.create content: params['content'], title: params['title'], language: params['language'], difficulty: params['difficulty'], bad_words: params['bad_words'], acct_req: params['acct_req']
     # check language;
-    # check wordLang1,2,or 3 based on above
+    # check word_eng, ger,or jpn based on above
     # by looping through @reading.content and looking for the word
     # create a library with vocab_id of the found vocab.
     @vocabs = Vocab.all 
     if @reading.language == "English"
       @vocabs.each do |v|
-        if v.wordLang1
-          if @reading.content.index(v.wordLang1) != nil 
+        if v.word_eng
+          if @reading.content.index(v.word_eng) != nil 
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
       end
     elsif @reading.language == "Deutsch"
       @vocabs.each do |v|
-        if v.wordLang2
-          if @reading.content.index(v.wordLang1) != nil 
+        if v.word_ger
+          if @reading.content.index(v.word_eng) != nil 
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
       end
     else # @reading.language == "日本語"
       @vocabs.each do |v|
-        if v.wordLang3 
-          if @reading.content.index(v.wordLang3) != nil
+        if v.word_jpn_f   #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
+          if @reading.content.index(v.word_jpn_f) != nil    #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
@@ -43,21 +43,21 @@ class GoController < ApplicationController
   end
 ###
   post '/adminvocab' do
-    if (params['wordLang1'] == "") 
-      params['wordLang1'] = "noenglishwordprovided" 
-    elsif (params['wordLang2'] == "") 
-      params['wordLang2'] = "nogermanwordprovided" 
-    elsif (params['wordLang3'] == "")
-      params['wordLang3'] = "nojapanesewordprovided"
+    if (params['word_eng'] == "") 
+      params['word_eng'] = "noenglishwordprovided" 
+    elsif (params['word_ger'] == "") 
+      params['word_ger'] = "nogermanwordprovided" 
+    elsif (params['word_jpn_f'] == "")
+      params['word_jpn_f'] = "nojapanesewordprovided"
     end
-    @vocab = Vocab.create wordLang1: params['wordLang1'], wordLang2: params['wordLang2'], wordLang3: params['wordLang3'], defLang1: params['defLang1'], defLang2: params['defLang2'], defLang3: params['defLang3'], usageLang1: params['usageLang1'], usageLang2: params['usageLang2'], usageLang3: params['usageLang3'], posLang1: params['posLang1'], posLang2: params['posLang2'], posLang3: params['posLang3']
+    @vocab = Vocab.create word_eng: params['word_eng'], word_ger: params['word_ger'], word_jpn_k: params['word_jpn_k'], word_jpn_f: params['word_jpn_f'], def_eng: params['def_eng'], def_ger: params['def_ger'], def_jpn: params['def_jpn'], usage_eng: params['usage_eng'], usage_ger: params['usage_ger'], usage_jpn: params['usage_jpn'], pos_eng: params['pos_eng'], pos_ger: params['pos_ger'], pos_jpn: params['pos_jpn']
     @readings = Reading.all 
     # loop through the content of every reading
-    # if wordLang1, wordLang2, or wordLang3 is in the reading
+    # if word_eng, word_ger, or word_jpn_f is in the reading
     # create a Library with both of those. 
     @readings.each do |r| 
       if r.content
-        if r.content.include?(@vocab.wordLang1) || r.content.include?(@vocab.wordLang2) || r.content.include?(@vocab.wordLang3) 
+        if r.content.include?(@vocab.word_eng) || r.content.include?(@vocab.word_ger) || r.content.include?(@vocab.word_jpn_f) 
           @library = Library.create reading_id: r['id'], vocab_id: @vocab['id']
         else 
           puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...nope!"
@@ -78,9 +78,6 @@ class GoController < ApplicationController
     @reading = Reading.find params['id']
     @vocabs = Vocab.all 
     @libraries = Library.all 
-    # puts @libraries[58].vocab_id
-    # puts '~~~~~~~~~~~~~~~~~~~~~~~~~~'
-    # puts @vocabs[@libraries[58].vocab_id].wordLang1
     @vocab_list = []
     @libraries.each do |lib| 
       if lib.reading_id == @reading.id
@@ -104,12 +101,12 @@ class GoController < ApplicationController
     @reading_list = []
     Reading.all.each do |reading|
       puts reading.language
-      unless reading.language == session[:nativeLanguage]
-        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['content']}</a>"])
+      unless reading.language == session[:native_language]
+        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
       end
     end
     p session
-    puts session[:nativeLanguage]
+    puts session[:native_language]
     puts "^^^ Show ^^^"
     @reading_list.to_json
   end  

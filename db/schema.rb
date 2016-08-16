@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812201250) do
+ActiveRecord::Schema.define(version: 20160816181614) do
 
   create_table "libraries", force: :cascade do |t|
     t.integer "vocab_id"
@@ -19,30 +19,34 @@ ActiveRecord::Schema.define(version: 20160812201250) do
 
   create_table "readings", force: :cascade do |t|
     t.string  "content"
-    t.integer "difficulty"
+    t.string  "title"
     t.string  "language"
+    t.integer "difficulty"
+    t.boolean "bad_words"
+    t.boolean "acct_req"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password"
     t.string "email"
-    t.string "nativeLanguage"
+    t.string "native_language"
   end
 
   create_table "vocabs", force: :cascade do |t|
-    t.string "wordLang1"
-    t.string "wordLang2"
-    t.string "wordLang3"
-    t.string "defLang1"
-    t.string "defLang2"
-    t.string "defLang3"
-    t.string "usageLang1"
-    t.string "usageLang2"
-    t.string "usageLang3"
-    t.string "posLang1"
-    t.string "posLang2"
-    t.string "posLang3"
+    t.string "word_eng"
+    t.string "word_ger"
+    t.string "word_jpn_k"
+    t.string "word_jpn_f"
+    t.string "def_eng"
+    t.string "def_ger"
+    t.string "def_jpn"
+    t.string "usage_eng"
+    t.string "usage_ger"
+    t.string "usage_jpn"
+    t.string "pos_eng"
+    t.string "pos_ger"
+    t.string "pos_jpn"
   end
 
 end

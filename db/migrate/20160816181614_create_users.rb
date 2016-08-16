@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username
       t.string :password
       t.string :email
-      t.string :nativeLanguage
+      t.string :native_language
     end
   end
 end

@@ -1,5 +1,17 @@
+ <h2> Make a reading!!!!</h2> 
+  <div class="center">
+
   <form method="post" action="/go/adminreading">
-    <textarea rows="10" cols="50" name="content" placeholder="content here..!"> </textarea>
+    <textarea rows="10" cols="50" name="content" placeholder="content here..!"></textarea>
+    <br />
+
+    <input type="text" name="title" placeholder="title" /><br />
+
+    <select name="language" />
+        <option value = "English">English</option>
+        <option value = "Deutsch">Deutsch</option>
+        <option value = "日本語">日本語</option>
+    </select>
     <br />
 
     <select name="difficulty"/>
@@ -11,16 +23,22 @@
     </select>
     <br />
 
-    <select name="language" />
-        <option value = "English">English</option>
-        <option value = "Deutsch">Deutsch</option>
-        <option value = "日本語">日本語</option>
+    <select name="bad_words"/>
+      <option value = "true"> bad words </option>
+      <option value = "false"> only good words </option>
     </select>
-
     <br />
+
+    <select name="acct_req"/>
+      <option value = "true">account required</option>
+      <option value = "false">free for unregistered users</option>
+    </select>
+    <br />
+
 
       <button>create reading</button>
    </form>
+  </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/js/background.js"></script>
   <script src="/js/main.js"></script>

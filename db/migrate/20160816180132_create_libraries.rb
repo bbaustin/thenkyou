@@ -3,6 +3,6 @@ class CreateLibraries < ActiveRecord::Migration
     create_table :libraries do |t|
       t.integer :vocab_id
       t.integer :reading_id
-    end
+    end    
   end
 end

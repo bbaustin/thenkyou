@@ -26,7 +26,7 @@ class HomeController < ApplicationController
 
 
   get '/logout/?' do
-    session =  nil
+    session =  nil #is this enough? or should i do each attribute? 
     puts ' ------------------------- '
     puts session
     puts ' ------------------------- '
@@ -46,7 +46,7 @@ class HomeController < ApplicationController
       if password == params['password']
         session[:is_logged_in] = true
         session[:user_id] = user.id 
-        session[:nativeLanguage] = user.nativeLanguage
+        session[:native_language] = user.native_language
         redirect '/go'
       else
         @login_message = "Did you type your password wrong?"
@@ -57,7 +57,7 @@ class HomeController < ApplicationController
 
   post '/?' do 
     user = User.find_by username: params['username']
-    if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['nativeLanguage'] == '')
+    if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['native_language'] == '')
       @signup_message = 'Please complete all fields!' 
       erb :home 
     elsif user 
@@ -65,23 +65,23 @@ class HomeController < ApplicationController
       erb :home 
     else 
       password = BCrypt::Password.create(params['password'])
-      user = User.create username: params['username'], password: password, email: params['email'], nativeLanguage: params['nativeLanguage']
+      user = User.create username: params['username'], password: password, email: params['email'], native_language: params['native_language']
       session[:is_logged_in] = true
       session[:user_id] = user.id 
-      session[:nativeLanguage] = user.nativeLanguage
+      session[:native_language] = user.native_language
         puts ' -----session.id------- '
         puts session.id
         puts ' -----session[:user_id]------ '
         puts session[:user_id]
-        puts ' -----session[:nativeLanguage]------'
-        puts session[:nativeLanguage]
+        puts ' -----session[:native_language]------'
+        puts session[:native_language]
       redirect '/go'
     end
   end
 
   get '/?' do
     @signup_message = '' 
-    p session[:nativeLanguage]
+    p session[:native_language]
     erb :home
   end
 

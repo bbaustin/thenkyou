@@ -1,22 +1,24 @@
- 
+<div class="center">
 <form method="post" action="/go/adminvocab">
 
-    <input type="text" name="wordLang1" placeholder="word language 1" /><br/>
-    <input type="text" name="wordLang2" placeholder="word language 2" /><br/>
-    <input type="text" name="wordLang3" placeholder="word language 3" /><br/>
-    <input type="text" name="defLang1" placeholder="definition language 1" /><br/>
-    <input type="text" name="defLang2" placeholder="definition language 2" /><br/>
-    <input type="text" name="defLang3" placeholder="definition language 3" /><br/>
-    <textarea rows="10" cols="50" name="usageLang1" placeholder="usage language 1"> </textarea><br/>
-    <textarea rows="10" cols="50" name="usageLang2" placeholder="usage language 2"> </textarea><br/>
-    <textarea rows="10" cols="50" name="usageLang3" placeholder="usage language 3"> </textarea><br/>
-    <input type="text" name="posLang1" placeholder="part of speech language 1" /><br/>
-    <input type="text" name="posLang2" placeholder="part of speech language 2" /><br/>
-    <input type="text" name="posLang3" placeholder="part of speech language 3" /><br/>
+    <input type="text" name="word_eng" placeholder="word english" /><br/>
+    <input type="text" name="word_ger" placeholder="word german" /><br/>
+    <input type="text" name="word_jpn_k" placeholder="word japanese kanji" /><br/>    
+    <input type="text" name="word_jpn_f" placeholder="word japanese furigana" /><br/>
+    <input type="text" name="def_eng" placeholder="definition english" /><br/>
+    <input type="text" name="def_ger" placeholder="definition german" /><br/>
+    <input type="text" name="def_jpn" placeholder="definition japanese" /><br/>
+    <textarea rows="10" cols="50" name="usage_eng" placeholder="usage english"> </textarea><br/>
+    <textarea rows="10" cols="50" name="usage_ger" placeholder="usage german"> </textarea><br/>
+    <textarea rows="10" cols="50" name="usage_jpn" placeholder="usage japanese"> </textarea><br/>
+    <input type="text" name="pos_eng" placeholder="part of speech english" /><br/>
+    <input type="text" name="pos_ger" placeholder="part of speech german" /><br/>
+    <input type="text" name="pos_jpn" placeholder="part of speech japanese" /><br/>
 
   <button>create vocab</button>
   
 </form>
+</div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/js/background.js"></script>
   <script src="/js/main.js"></script>

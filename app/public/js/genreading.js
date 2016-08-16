@@ -12,11 +12,11 @@ var combining = function(splitArray) {
 var splitting = function(vocab, content) {
   var strArr = [];
   for (var i = 0; i < vocab.length; i++){
-    if (content.indexOf(vocab[i].wordLang1) !== -1) { // NEW!!!!! FOR ENGLISH 
-      strArr.push(content.split(vocab[i].wordLang1)); 
-      strArr.push(['<span class="vocab">' + vocab[i].wordLang1 + '</span>']); 
+    if (content.indexOf(vocab[i].word_eng) !== -1) { // NEW!!!!! FOR ENGLISH 
+      strArr.push(content.split(vocab[i].word_eng)); 
+      strArr.push(['<span class="vocab">' + vocab[i].word_eng + '</span>']); 
       content = combining(strArr);
-      $('#vocab-box').append('<ul>' + vocab[i].wordLang1 + '</ul>');
+      $('#vocab-box').append('<ul>' + vocab[i].word_eng + '</ul>');
     }
   }
   return strArr;
@@ -39,9 +39,9 @@ $.ajax({
     $('.vocab').click(function() {
       console.log(this.innerHTML);
       for (var r = 0; r < response.length; r++) {
-        if (this.innerHTML === response[r].wordLang1) {
+        if (this.innerHTML === response[r].word_eng) {
           console.log(response[r].id);
-          $('#vocab-box').html('<button class="vocab-return">back</button><ul> <li>' + response[r].wordLang3 + '</li><li>anotherthing</li></ul>');
+          $('#vocab-box').html('<button class="vocab-return">back</button><ul> <li>' + response[r].word_jpn_f + '</li><li>anotherthing</li></ul>');
         }
       }
     })
