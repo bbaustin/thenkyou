@@ -22,6 +22,12 @@ var splitting = function(vocab, content) {
         content = combining(strArr);
         $('#vocab-box').append('<ul>' + vocab[i].word_jpn_k + '</ul>'); // take out later or fix
       }
+      else if (content.indexOf(vocab[i].word_jpn_k) !== -1) {
+        strArr.push(content.split(vocab[i].word_jpn_k)); 
+        strArr.push(['<span class="vocab">' + vocab[i].word_jpn_k + '</span>']); 
+        content = combining(strArr);
+        $('#vocab-box').append('<ul>' + vocab[i].word_jpn_k + '</ul>');        
+      }
       else if (content.indexOf(vocab[i].word_jpn_f) !== -1) { // !=== -1?
         strArr.push(content.split(vocab[i].word_jpn_f)); 
         strArr.push(['<span class="vocab">' + vocab[i].word_jpn_f + '</span>']); 
