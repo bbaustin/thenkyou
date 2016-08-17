@@ -117,7 +117,7 @@ end
   end 
    
   get '/:id' do  
-    @reading = Reading.find params['id']    
+    @reading = Reading.find params['id']  
     erb :reading 
   end 
 

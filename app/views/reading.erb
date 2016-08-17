@@ -1,8 +1,9 @@
 <h2>Results Page</h2>
 
 <p id="myId"><%= @reading["id"] %></p>
+<p id="myLang"><%= @reading["language"] %></p>
 <p id="reading-main"><%= @reading["content"] %></p>
-<div id="vocab-box"></div>
+<div id="vocab-box"><h2>Click a vocab to get more info!</h2><ul></ul></div>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/js/background.js"></script>
