@@ -118,6 +118,13 @@ end
    
   get '/:id' do  
     @reading = Reading.find params['id']  
+    @nl = session[:native_language]
+    puts "------------------------------------------"
+    print "line 123: "
+    puts session[:native_language]
+    print "line 124: "
+    puts @nl
+    puts "------------------------------------------"    
     erb :reading 
   end 
 

@@ -58,10 +58,22 @@ var splitting = function(vocab, content) {
   return strArr;
 };
 
+    var status = "English";
+    $('#eng').click(function() {
+      status = "English";
+      console.log(status)
+    })
+    $('#ger').click(function() {
+      status = "Deutsch";
+      console.log(status)
+    })  
+    $('#jpn').click(function() {
+      status = "日本語";
+      console.log(status)
+    })
 
-
-
-var myId = parseInt($("#myId").text());
+var nl = $("#nl").text(); 
+var myId   = parseInt($("#myId").text());
 $.ajax({
   url: '/go/' + myId, // dynamic url
   type: 'post',
@@ -73,18 +85,129 @@ $.ajax({
     
     console.log(response); // showing up with random stuff if no vocab found. 
 
+
+  // clicking vocabs
+  // language option; in lieu of using NL session data (see below)
     $('.vocab').click(function() {
-      console.log(this.innerHTML);
-      for (var r = 0; r < response.length; r++) {
-        if ((this.innerHTML === response[r].word_jpn_f) || (this.innerHTML === response[r].word_jpn_k)) {
-          console.log(response[r].id);
-          $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+      console.log(status);
+
+        ////\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ ENGLISH READINGS 
+        if (status === "English") {  // language of vocabulary
+          if ($('#myLang').text() === "English") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_eng) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+              }
+            }
+          }  
+          else if ($('#myLang').text() === "German") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_ger) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+              }
+            }
+          }
+          else if ($('#myLang').text() === "日本語") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f))  {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+              }
+            }
+          }
         }
-      }
-    })
+
+        ////\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ GERMAN READINGS 
+        else if (status === "German") {  // language of vocabulary
+          if ($('#myLang').text() === "English") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_eng) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>'); // work here
+              }
+            }
+          }  
+          else if ($('#myLang').text() === "German") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_ger) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>'); // work here
+              }
+            }
+          }
+          else if ($('#myLang').text() === "日本語") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f)) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>'); // work here
+              }
+            }
+          }
+        }
 
 
+        ////\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ JAPANESE READINGS 
+        ///// HAVE TO ADD STUFF FOR KANJI VS FURIGANA IN LAST LINE OF EACH IF..ELSE
+        else if (status === "日本語") {  // language of vocabulary
+          if ($('#myLang').text() === "English") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_eng) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+              }
+            }
+          }  
+          else if ($('#myLang').text() === "German") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if (this.innerHTML === response[r].word_ger) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+              }
+            }
+          }
+          else if ($('#myLang').text() === "日本語") {  // language of paragraph
+            for (var r = 0; r < response.length; r++) {
+              if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f)) {
+                console.log(this.innerHTML)
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+              }
+            }
+          }
+        }
+      })
+    
 
+      // for (var r = 0; r < response.length; r++) {
+      //   if ((this.innerHTML === response[r].word_jpn_f) || (this.innerHTML === response[r].word_jpn_k)) {
+      //     console.log(response[r].id);
+      //     $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+      //   }
+      // }
+
+/////////// if you fix this, change the id of nl to something else, both here and in your reading.erb. It's being affected in genreading.js as is. 
+      /////// checking for NL session. This would be a cool feature, 
+      /////// but might require some serious debugging. Put off until
+      /////// everything else is working better :>
+      // if (nl === "English") {
+      //   for (var r = 0; r < response.length; r++) {
+      //     $('#vocab-box').html('<h2>' + this.word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>'); // work here
+      //   }
+      // }
+      // else if (nl === "Deutsch") {
+      //   for (var r = 0; r < response.length; r++) {
+      //     $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>'); // work here
+      //   }
+      // }
+      // else if (nl === "日本語") {
+      //   if (this.innerHTML === response[r].word_eng){
+      //     for (var r = 0; r < response.length; r++) {
+      //       // add testing here for IF KANJI, KANJI GETS H2 and FURIGANA GETS SMALL, OTHERWISE FURIGANA GETS H2
+      //       $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+      //     }
+      //   }
+      // }
   },
   error: function(error) {
     console.log("error: " + error);

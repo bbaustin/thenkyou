@@ -29,10 +29,21 @@ var chooser = "English";
 $("#eng").click(function() {
   chooser = "English";
   $("h1").html("thenkyou");
-  console.log(chooser);
+//  console.log(chooser);
   $("#nl").val("English");
   this.style.backgroundColor = this.style.borderColor;
   $("#jpn").css('backgroundColor', 'transparent');
+  $("#ger").css('backgroundColor', 'transparent');  
+})
+
+$("#ger").click(function() {
+  chooser = "German";
+  $("h1").html('テェンキョウ');
+  this.style.backgroundColor = this.style.borderColor;
+  $("#nl").val("German");
+  $("#eng").css('backgroundColor', 'transparent');
+  $("#jpn").css('backgroundColor', 'transparent');
+//  console.log(chooser);
 })
 
 $("#jpn").click(function() {
@@ -41,6 +52,7 @@ $("#jpn").click(function() {
   this.style.backgroundColor = this.style.borderColor;
   $("#nl").val("日本語");
   $("#eng").css('backgroundColor', 'transparent');
-  console.log(chooser);
+  $("#ger").css('backgroundColor', 'transparent');
+//  console.log(chooser);
 })
 
