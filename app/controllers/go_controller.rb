@@ -17,6 +17,7 @@ class GoController < ApplicationController
           end
         end
       end
+    
     elsif @reading.language == "Deutsch"
       @vocabs.each do |v|
         if v.word_ger
@@ -25,18 +26,24 @@ class GoController < ApplicationController
           end
         end
       end
-    else # @reading.language == "日本語"
+    
+    elsif @reading.language == "日本語"
       @vocabs.each do |v|
-        if v.word_jpn_f || v.word_jpn_k   #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
-          if (@reading.content.index(v.word_jpn_f) != nil) || (@reading.content.index(v.word_jpn_k) != nil)    #!!!!!!!!!!!!!!!!!!!!!!!!! or word_jpn_k !!!!!!!!!!!!!!!!
+        if v.word_jpn_f
+          if @reading.content.index(v.word_jpn_f) != nil 
             @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
           end
         end
-      end
-    end 
+        if v.word_jpn_k
+          if @reading.content.index(v.word_jpn_k) != nil 
+            @library = Library.create reading_id: @reading['id'], vocab_id: v['id']
+          end
+        end
+      end 
     # Binding.pry
     erb :adminreading
   end
+end
 
   get '/adminreading' do
     erb :adminreading
@@ -86,15 +93,24 @@ class GoController < ApplicationController
     @reading = Reading.find params['id']
     @vocabs = Vocab.all 
     @libraries = Library.all 
+
+    puts "-----------------------------------------"
+    puts Vocab.find(@libraries[11].vocab_id).word_eng
+    puts "-----------------------------------------"    
+
+    # binding.pry
     @vocab_list = []
     @libraries.each do |lib| 
+      puts "lib --> #{lib}"
+      puts "lib.vocab_id --> #{lib.vocab_id}"
       if lib.reading_id == @reading.id
-        @vocab_list.push(@vocabs[(lib.vocab_id - 1)])
+        @vocab_list.push(Vocab.find(lib.vocab_id)) #this chill?
         puts "lib.id: #{lib.id}"
         puts "@reading.id: #{@reading.id}"
         puts "lib.vocab_id: #{lib.vocab_id}"
+        puts "vocab list!!!! #{@vocab_list}"
       end
-    end  
+    end
     puts @vocab_list
     content_type :json 
     @vocab_list.to_json

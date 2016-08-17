@@ -10,14 +10,25 @@ var combining = function(splitArray) {
 };
 
 var splitting = function(vocab, content) {
-  var strArr = [];
-  for (var i = 0; i < vocab.length; i++){
-    if (content.indexOf(vocab[i].word_eng) !== -1) { // NEW!!!!! FOR ENGLISH 
-      strArr.push(content.split(vocab[i].word_eng)); 
-      strArr.push(['<span class="vocab">' + vocab[i].word_eng + '</span>']); 
-      content = combining(strArr);
-      $('#vocab-box').append('<ul>' + vocab[i].word_eng + '</ul>');
-    }
+  var strArr = [];          
+  console.log(vocab);
+  console.log(content);
+  // var languageList = [vocab[i].word_eng, vocab[i].word_ger, vocab[i].word_jpn_k, vocab[i].word_jpn_f];
+  for (var i = 0; i < vocab.length; i++) {
+    //for (var l = 0; l < languageList.length; l++) {
+      if (content.indexOf(vocab[i].word_eng) !== -1) { // !=== -1?
+        strArr.push(content.split(vocab[i].word_eng)); 
+        strArr.push(['<span class="vocab">' + vocab[i].word_eng + '</span>']); 
+        content = combining(strArr);
+        $('#vocab-box').append('<ul>' + vocab[i].word_jpn_k + '</ul>'); // take out later or fix
+      }
+      else if (content.indexOf(vocab[i].word_jpn_f) !== -1) { // !=== -1?
+        strArr.push(content.split(vocab[i].word_jpn_f)); 
+        strArr.push(['<span class="vocab">' + vocab[i].word_jpn_f + '</span>']); 
+        content = combining(strArr);
+        $('#vocab-box').append('<ul>' + vocab[i].word_jpn_f + '</ul>'); // take out later or fix
+      }
+    //}
   }
   return strArr;
 };
@@ -31,20 +42,21 @@ $.ajax({
   type: 'post',
   dataType: 'json',
   success: function(response) {
+    console.log(response)
     var showParagraph = combining(splitting(response, $("#reading-main").text()));
     $("#reading-main").html(showParagraph);
     
     console.log(response); // showing up with random stuff if no vocab found. 
 
-    $('.vocab').click(function() {
-      console.log(this.innerHTML);
-      for (var r = 0; r < response.length; r++) {
-        if (this.innerHTML === response[r].word_eng) {
-          console.log(response[r].id);
-          $('#vocab-box').html('<button class="vocab-return">back</button><ul> <li>' + response[r].word_jpn_f + '</li><li>anotherthing</li></ul>');
-        }
-      }
-    })
+    // $('.vocab').click(function() {
+    //   console.log(this.innerHTML);
+    //   for (var r = 0; r < response.length; r++) {
+    //     if (this.innerHTML === response[r].word_eng) {
+    //       console.log(response[r].id);
+    //       $('#vocab-box').html('<ul> <li>' + response[r].word_eng + '</li></ul>'); // work here
+    //     }
+    //   }
+    // })
 
 
 
@@ -54,12 +66,3 @@ $.ajax({
   }
 });
 
-    $('.vocab-return').click(function() {
-      console.log('hey');
-      // don't know why this doesn't work but it's not extremely important
-      // $('#vocab-box').html('<ul>');
-      // for (var r = 0; r < response.length; r++) { 
-      //   $('#vocab-box').append('<li>' + response[r] + '</li>');
-      // }
-      // $('#vocab-box').append('</ul>');     
-    })
