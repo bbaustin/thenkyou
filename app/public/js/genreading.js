@@ -12,6 +12,7 @@ var combining = function(splitArray) {
   for (var i = 0; i < splitArray.length; i += 2) {
     var stringWithClass = splitArray[i].join(splitArray[i + 1]); 
     }
+    console.log(typeof stringWithClass);
     return stringWithClass;
 };
 
@@ -41,19 +42,26 @@ var splitting = function(vocab, content) {
       }
     }    
     else if ($("#myLang").text() === "日本語") {
+
       var reg_jpn_k = new RegExp('\\b' + vocab[i].word_jpn_k + '\\b');
       var reg_jpn_f = new RegExp('\\b' + vocab[i].word_jpn_f + '\\b');
       if (content.indexOf(vocab[i].word_jpn_k) !== -1) {
         console.log(strArr);
         strArr.push(content.split(vocab[i].word_jpn_k)); 
+
         strArr.push(['<span class="vocab">' + vocab[i].word_jpn_k + '</span>']); 
+
         content = combining(strArr);
+
       }
       else if (content.indexOf(vocab[i].word_jpn_f) !== -1) { // !=== -1?
         console.log(strArr);
         strArr.push(content.split(vocab[i].word_jpn_f)); 
+
         strArr.push(['<span class="vocab">' + vocab[i].word_jpn_f + '</span>']); 
+
         content = combining(strArr);
+
       }
     }
   }
@@ -89,8 +97,9 @@ $.ajax({
   success: function(response) {
     console.log(response)
     var showParagraph = combining(splitting(response, $("#reading-main").text()));
+
     $("#reading-main").html(showParagraph);
-    
+
     console.log(response); // showing up with random stuff if no vocab found. 
 
   // clicking vocabs

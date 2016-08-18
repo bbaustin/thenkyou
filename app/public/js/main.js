@@ -6,7 +6,13 @@ function genColor () {
   var v_buttons = document.getElementsByClassName('vocabButton');
   var vocabs  = document.getElementsByClassName('vocab');
   var inputs  = document.getElementsByClassName('input');
+  var welcomes = document.getElementsByClassName('welcome');
 
+
+  for (var i = 0; i < welcomes.length; i++){
+    var r = parseInt(Math.random() * 6);
+    welcomes[i].style.color = colorList[r];
+  }  
   for (var i = 0; i < buttons.length; i++){
   	var r = parseInt(Math.random() * 6);
   	buttons[i].style.borderColor = colorList[r];

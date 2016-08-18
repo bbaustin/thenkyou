@@ -96,6 +96,12 @@ button {
 #nl {
   display: none;
 }
+#myId {
+  display: none;
+}
+#myLang {
+  display: none;
+}
 #reading-main {
   margin: 15px;
   padding: 5px;
@@ -111,6 +117,10 @@ button {
 }
 #vocab-box p {
   margin: 0;
+}
+.welcome {
+  font-weight: 700;
+  cursor: pointer;
 }
 /* make this have the bottom border extend until the next selector */
 .vocabButton:after {
