@@ -88,6 +88,9 @@ end
 # end admin stuff end! 
 ##########################
 
+  # post '/patch/?' do 
+  #   reading = Reading.find params['id']
+  # end
 
   post '/:id' do |id|
     @reading = Reading.find params['id']

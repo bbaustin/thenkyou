@@ -106,6 +106,7 @@ button {
   width: 343px;
   overflow: scroll;
   margin: 0 auto;
+  margin-bottom: 20px;
   font-weight: 700;
 }
 #vocab-box p {
