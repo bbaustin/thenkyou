@@ -157,7 +157,9 @@ $.ajax({
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_eng) {
                 console.log(this.innerHTML)
-                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+                //////// look ! this is what you need
+                // if (response[r].word_jpn_k) <--- just check if there is a kanji. if so do layout1. otherwise, do layout2. 
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); // work here
               }
             }
           }  
@@ -165,7 +167,7 @@ $.ajax({
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
                 console.log(this.innerHTML)
-                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); // work here
               }
             }
           }
@@ -173,7 +175,7 @@ $.ajax({
             for (var r = 0; r < response.length; r++) {
               if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f)) {
                 console.log(this.innerHTML)
-                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn_f + '</p><p><em>' + response[r].usage_jpn_f + '</em></p>'); // work here
+                $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); // work here
               }
             }
           }
