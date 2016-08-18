@@ -8,12 +8,22 @@ body {
 h1 {
   font-size: 4em;
   margin: 0;
-}
-h1,
-h2 {
+  color: #202020;
   text-align: center;
 }
+h2 {
+  text-align: center;
+  font-size: 2.5em;
+  color: #202020;
+}
+h3 {
+  font-size: 1.5em;
+}
+p {
+  color: #202020;
+}
 a {
+  color: #52BFFF;
   text-decoration: none;
 }
 .vocab {
@@ -23,6 +33,24 @@ a {
 }
 img {
   z-index: -1;
+}
+ul {
+  background-color: transparent;
+}
+li {
+  margin: 5px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 33px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid;
+  font-weight: 700;
+  display: inline-block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 1em;
+  background-color: transparent;
+  cursor: pointer;
 }
 input[type="text"],
 input[type="password"],
@@ -114,6 +142,7 @@ button {
   margin: 0 auto;
   margin-bottom: 20px;
   font-weight: 700;
+  background-color: white;
 }
 #vocab-box p {
   margin: 0;
