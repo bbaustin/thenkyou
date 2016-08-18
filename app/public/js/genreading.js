@@ -101,7 +101,7 @@ $.ajax({
               }
             }
           }  
-          else if ($('#myLang').text() === "German") {  // language of paragraph
+          else if ($('#myLang').text() === "Deutsch") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
                 console.log(this.innerHTML)
@@ -119,8 +119,8 @@ $.ajax({
           }
         }
 
-        ////\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ GERMAN READINGS 
-        else if (status === "German") {  // language of vocabulary
+        ////\\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\ Deutsch READINGS 
+        else if (status === "Deutsch") {  // language of vocabulary
           if ($('#myLang').text() === "English") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_eng) {
@@ -129,7 +129,7 @@ $.ajax({
               }
             }
           }  
-          else if ($('#myLang').text() === "German") {  // language of paragraph
+          else if ($('#myLang').text() === "Deutsch") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
                 console.log(this.innerHTML)
@@ -159,7 +159,7 @@ $.ajax({
               }
             }
           }  
-          else if ($('#myLang').text() === "German") {  // language of paragraph
+          else if ($('#myLang').text() === "Deutsch") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
                 console.log(this.innerHTML)
