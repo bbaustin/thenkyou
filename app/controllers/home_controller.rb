@@ -37,6 +37,35 @@ class HomeController < ApplicationController
     redirect '/'
   end
 
+  post '/signup' do 
+    user = User.find_by username: params['username']
+    if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['native_language'] == '')
+      @signup_message = 'Please complete all fields x_x' 
+      erb :signup 
+    elsif user 
+      @signup_message =  'Username already taken T-T' 
+      erb :signup 
+    else 
+      password = BCrypt::Password.create(params['password'])
+      user = User.create username: params['username'], password: password, email: params['email'], native_language: params['native_language']
+      session[:is_logged_in] = true
+      session[:user_id] = user.id 
+      session[:username] = user.username
+      session[:native_language] = user.native_language
+        puts ' -----session.id------- '
+        puts session.id
+        puts ' -----session[:user_id]------ '
+        puts session[:user_id]
+        puts ' -----session[:native_language]------'
+        puts session[:native_language]
+      redirect '/go'
+    end
+  end
+
+  get '/signup' do 
+    erb :signup
+  end
+
   post '/login' do 
     user = User.find_by username: params['username']
     if (params['username'] == '') || (params['password'] == '')
@@ -50,6 +79,7 @@ class HomeController < ApplicationController
       if password == params['password']
         session[:is_logged_in] = true
         session[:user_id] = user.id 
+        session[:username] = user.username 
         session[:native_language] = user.native_language
         redirect '/go'
       else
@@ -60,32 +90,18 @@ class HomeController < ApplicationController
   end
 
   post '/?' do 
-    user = User.find_by username: params['username']
-    if (params['username'] == '') || (params['password'] == '') || (params['email'] == '') || (params['native_language'] == '')
-      @signup_message = 'Please complete all fields!' 
-      erb :home 
-    elsif user 
-      @signup_message =  'Username already taken T_T' 
-      erb :home 
-    else 
-      password = BCrypt::Password.create(params['password'])
-      user = User.create username: params['username'], password: password, email: params['email'], native_language: params['native_language']
-      session[:is_logged_in] = true
-      session[:user_id] = user.id 
-      session[:native_language] = user.native_language
-        puts ' -----session.id------- '
-        puts session.id
-        puts ' -----session[:user_id]------ '
-        puts session[:user_id]
-        puts ' -----session[:native_language]------'
-        puts session[:native_language]
-      redirect '/go'
+    @reading_list = []
+    Reading.all.each do |reading|
+      unless reading.acct_req
+        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+      end
     end
+    @reading_list.to_json
   end
 
   get '/?' do
     @signup_message = '' 
-    p session[:native_language]
+    @username = "Hello, #{session[:username]}!"
     erb :home
   end
 

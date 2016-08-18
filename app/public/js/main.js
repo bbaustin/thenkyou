@@ -48,9 +48,9 @@ $("#eng").click(function() {
 })
 
 $("#ger").click(function() {
-  chooser = "German";
+  chooser = "Deutsch";
   this.style.backgroundColor = this.style.borderColor;
-  $("#nl").val("German");
+  $("#nl").val("Deutsch");
   $("h1").html("thenkyou");  
   $("#eng").css('backgroundColor', 'transparent');
   $("#jpn").css('backgroundColor', 'transparent');
