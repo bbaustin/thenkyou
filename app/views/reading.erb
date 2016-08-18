@@ -4,11 +4,19 @@
 <p id="myLang"><%= @reading["language"] %></p>
 <p id="reading-main"><%= @reading["content"] %></p>
         
-        <div class="langButton" id="eng">English</div>
-        <div class="langButton" id="ger">Deutsch</div>
-        <div class="langButton" id="jpn">日本語</div>
-<div id="vocab-box"><h2>Click a vocab to get more info!</h2><ul></ul></div>
-<p id="nl"><%= @nl %></p>
+<div class="center">
+  <div id="eng" class="vocabButton" >English</div>
+  <div id="ger" class="vocabButton">Deutsch</div>
+  <div id="jpn" class="vocabButton">日本語</div>
+  
+  <div id="vocab-box">
+    <h2>Click a vocab to get more info!</h2>
+    <ul></ul>
+  </div>
+
+</div>
+  
+  <p id="nl"><%= @nl %></p>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <script src="/js/background.js"></script>

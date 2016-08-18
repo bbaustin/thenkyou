@@ -1,6 +1,8 @@
 // ../go/..
 // Generate attributes of reading selections.
 
+$('#vocab-box').css("border-right-color", $('#jpn').css('borderColor'));
+$('#vocab-box').css("border-left-color", $('#eng').css('borderColor'));
 
 
 var combining = function(splitArray) {

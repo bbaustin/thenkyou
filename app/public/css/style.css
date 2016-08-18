@@ -56,6 +56,20 @@ input[type="email"] {
   display: inline-block;
   cursor: pointer;
 }
+.vocabButton {
+  margin: 0;
+  width: 100px;
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+  padding: 5px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+  border-right: 1px solid;
+  font-weight: 700;
+  display: inline-block;
+  cursor: pointer;
+}
 button {
   margin: 0 auto;
   margin-bottom: 15px;
@@ -88,13 +102,18 @@ button {
 }
 #vocab-box {
   border: 1px solid;
-  max-width: 300px;
+  border-top: none;
+  width: 343px;
   overflow: scroll;
-  margin: 15px;
+  margin: 0 auto;
   font-weight: 700;
 }
 #vocab-box p {
   margin: 0;
+}
+.vocabButton:after {
+  border-bottom: 1px solid pink;
+  width: 100px;
 }
 .container {
   overflow: hidden;

@@ -3,12 +3,17 @@ function genColor () {
   var colorList = ["#FD8D8D", "#FFB148", "#FFD60E", "#7CE938", "#52BFFF", "#E2B4F9", "#979797"];
   // var r = parseInt(Math.random() * 6);
   var buttons = document.getElementsByClassName('langButton');
+  var v_buttons = document.getElementsByClassName('vocabButton');
   var vocabs  = document.getElementsByClassName('vocab');
   var inputs  = document.getElementsByClassName('input');
 
   for (var i = 0; i < buttons.length; i++){
   	var r = parseInt(Math.random() * 6);
   	buttons[i].style.borderColor = colorList[r];
+  }
+  for (var i = 0; i < v_buttons.length; i++){
+    var r = parseInt(Math.random() * 6);
+    v_buttons[i].style.borderColor = colorList[r];
   }
   for (var i = 0; i < inputs.length; i++) {
     var r = parseInt(Math.random() * 6);
@@ -38,9 +43,9 @@ $("#eng").click(function() {
 
 $("#ger").click(function() {
   chooser = "German";
-  $("h1").html('テェンキョウ');
   this.style.backgroundColor = this.style.borderColor;
   $("#nl").val("German");
+  $("h1").html("thenkyou");  
   $("#eng").css('backgroundColor', 'transparent');
   $("#jpn").css('backgroundColor', 'transparent');
 //  console.log(chooser);
