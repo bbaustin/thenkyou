@@ -111,6 +111,7 @@ button {
 #vocab-box p {
   margin: 0;
 }
+/* make this have the bottom border extend until the next selector */
 .vocabButton:after {
   border-bottom: 1px solid pink;
   width: 100px;
