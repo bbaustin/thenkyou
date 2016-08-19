@@ -124,7 +124,6 @@ input[type="email"] {
   font-weight: 700;
   display: inline-block;
   cursor: pointer;
-  background-color: white;
 }
 button {
   margin: 0 auto;
