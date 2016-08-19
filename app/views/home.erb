@@ -1,25 +1,32 @@
-  <h1>thenkyou</h1>
-
-    <p> thenkyou is a tool to help you learn slang in a foreign language. Read selections with colloquial terms used in a conversational context, and click on the term to get more information about it. thenkyou is currently available in <span class="welcome" id="eng">English</span>, <span class="welcome" id="ger">Deutsch</span>, and <span class="welcome" id="jpn">日本語</span>! Here are some examples:</p>
-
-    <div class="button_container"></div>
-
+  <div class="containerR">
+    <h1>thenkyou</h1>
+  </div>
+  
+  <div class="floatL"> 
+    <div class="info">
+      <p> <strong>thenkyou</strong> is a tool to help you learn slang in a foreign language. Read selections with colloquial terms used in a conversational context, and click on the term to get more information about it. <strong>thenkyou</strong> is currently available in <span class="welcome" id="eng">English</span>, <span class="welcome" id="ger">Deutsch</span>, and <span class="welcome" id="jpn">日本語</span>! Here are some examples:</p>
+    </div>
     <div class="center">
-    <%= @login_message %>
+      <div class="button_container"></div>
+    </div>
+
+  </div>  
+
+    <div class = "floatR">
+    <div class="center">
+      <%= @login_message %>
       <form method="post" action="/login">
         <input type="text" name="username" placeholder="Username" /><br />
-
         <input type="password" name="password" placeholder="Password" /><br />
-
         <br/>
-        <button>Log in</button>  
+        <button class="login_button">Log in</button>  
       </form>
+      <p> Don't have login? <a href="/signup"><strong>Sign up!!</strong></a></p>
     </div>
+    </div>
+
+
 
   <script src="/js/background.js"></script>
   <script src="/js/main.js"></script>
   <script src="/js/genhome.js"></script>
-
-
-
-

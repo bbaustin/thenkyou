@@ -29,18 +29,43 @@ p {
 
 a {
 	text-decoration: none;
+  color: @blue
 }
 
-.vocab {
-	color: @blue;
-	font-weight: 700;
-  cursor: pointer;
+a {
+  color: @purple;
 }
 
 img {
 	// max-height: 150px;
 	// max-width: 150px;
 	z-index: -1;
+}
+// .container {
+//   margin: 0 auto;
+// }
+
+.floatL {
+  max-width: 50%;
+  float: left;
+  margin: 1% 1% 1% 3%;
+
+}
+
+
+.floatR {
+  max-width: 40%;
+  float: right;
+  margin: 5% 3% 1% 1%;
+}
+
+// .containerC {
+//   flex-direction: column;
+//   flex-grow: 1;
+// }
+
+.reading_button {
+  margin: 0 auto;
 }
 
 .reading_button {
@@ -57,17 +82,14 @@ img {
   background-color: pink;
   cursor: pointer;
   color: @black;
-  opacity: 50%;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+.login_button {
   margin: 0 auto;
   margin-bottom: 15px;
-  width: 330px;
-  height: 33px;
-  line-height: 33px; // aligns vertically
+  width: 110px;
+  height: 22px;
+  line-height: 11px; // aligns vertically
   border-radius: 33px;
   text-align: center;
   padding: 5px;
@@ -75,7 +97,26 @@ input[type="email"] {
   font-weight: 700;
   display: inline-block;
   font-family: 'Quicksand', sans-serif;
-  font-size: 1em;
+  font-size: .75em;
+  background-color: transparent;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"] {
+  margin: 0 auto;
+  margin-bottom: 15px;
+  width: 220px;
+  height: 22px;
+  line-height: 22px; // aligns vertically
+  border-radius: 33px;
+  text-align: center;
+  padding: 5px;
+  border: 1px solid;
+  font-weight: 700;
+  display: inline-block;
+  font-family: 'Quicksand', sans-serif;
+  font-size: .75em;
   background-color: transparent;
 }
 
@@ -173,16 +214,26 @@ button {
 }
 
 /* make this have the bottom border extend until the next selector */
-.vocabButton:after {
-  border-bottom: 1px solid pink;
-  width: 100px;
-}
-
-.container {
-  overflow: hidden;  
-}
+// .vocabButton:after {
+//   border-bottom: 1px solid;
+//   width: 100px;
+// }
 
 .center {
   margin: 0 auto;
   text-align: center;
+}
+
+.info {
+  margin: 0 auto;
+  text-align: right;
+  background-image: radial-gradient(rgba(255,255,255,1), rgba(255,255,255,.25));
+  padding: 5px;
+  border-radius: 15%;
+}
+
+.vocab {
+  color: @blue;
+  font-weight: 700;
+  cursor: pointer;
 }

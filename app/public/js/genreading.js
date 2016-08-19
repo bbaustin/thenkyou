@@ -3,10 +3,11 @@
 
 $('#vocab-box').css("border-right-color", $('#jpn').css('borderColor'));
 $('#vocab-box').css("border-left-color", $('#eng').css('borderColor'));
-$("#eng").css('backgroundColor', $('#eng').css('borderColor'));
+$('#vocab-box').css("border-bottom-color", $('#ger').css('borderColor'));
 var vocabClickCounter = 0;
 var element = document.documentElement.outerHTML;
-
+// border-image:
+//       linear-gradient(to right, black, rgba(0, 0, 0, 0)) 1 100%; 
 
 // var vocabClick = function()
 
