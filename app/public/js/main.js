@@ -2,11 +2,12 @@
 function genColor () {
   var colorList = ["#FD8D8D", "#FFB148", "#FFD60E", "#7CE938", "#52BFFF", "#E2B4F9", "#979797"];
   // var r = parseInt(Math.random() * 6);
-  var buttons = document.getElementsByClassName('langButton');
-  var v_buttons = document.getElementsByClassName('vocabButton');
-  var vocabs  = document.getElementsByClassName('vocab');
-  var inputs  = document.getElementsByClassName('input');
-  var welcomes = document.getElementsByClassName('welcome');
+  var buttons         = document.getElementsByClassName('langButton');
+  var v_buttons       = document.getElementsByClassName('vocabButton');
+  var vocabs          = document.getElementsByClassName('vocab');
+  var inputs          = document.getElementsByClassName('input');
+  var welcomes        = document.getElementsByClassName('welcome');
+
 
 
   for (var i = 0; i < welcomes.length; i++){
@@ -33,6 +34,7 @@ function genColor () {
 
 }
 genColor();
+
 
 
 // lang stuff... eventualyl with cookies? 

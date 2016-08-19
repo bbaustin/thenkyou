@@ -138,11 +138,13 @@ end
       puts reading.language
       if session[:is_logged_in]   
         unless reading.language == session[:native_language]
-          @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+          @reading_list.push(["<a href='/go/#{reading['id']}'> <div class='reading_button'>#{reading['title']}</div></a>"])
         end
+      
       else #not logged in
         unless reading.acct_req
-          @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+          @reading_list.push(["<a href='/go/#{reading['id']}'><div class='reading_button'> #{reading['title']}</div></a>"])
+          puts @reading_list
         end
       end
     end

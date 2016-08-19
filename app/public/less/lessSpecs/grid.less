@@ -28,7 +28,6 @@ p {
 }
 
 a {
-  color: @blue;
 	text-decoration: none;
 }
 
@@ -44,24 +43,21 @@ img {
 	z-index: -1;
 }
 
-ul {
-  background-color: transparent; 
-}
-
-li {
+.reading_button {
   margin: 5px;
   height: 50px;
   line-height: 50px; // aligns vertically
   border-radius: 33px;
   text-align: center;
-  padding: 5px;
-  border: 1px solid;
+  padding: 5px 15px;
   font-weight: 700;
   display: inline-block;
   font-family: 'Quicksand', sans-serif;
   font-size: 1em;
-  background-color: transparent;
+  background-color: pink;
   cursor: pointer;
+  color: @black;
+  opacity: 50%;
 }
 
 input[type="text"],

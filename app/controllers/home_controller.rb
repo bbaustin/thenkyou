@@ -93,7 +93,7 @@ class HomeController < ApplicationController
     @reading_list = []
     Reading.all.each do |reading|
       unless reading.acct_req
-        @reading_list.push(["#{reading['id']}. <a href='/go/#{reading['id']}'> #{reading['title']}</a>"])
+          @reading_list.push(["<a href='/go/#{reading['id']}'><div class='reading_button'> #{reading['title']}</div></a>"])
       end
     end
     @reading_list.to_json

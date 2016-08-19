@@ -23,7 +23,6 @@ p {
   color: #202020;
 }
 a {
-  color: #52BFFF;
   text-decoration: none;
 }
 .vocab {
@@ -34,23 +33,21 @@ a {
 img {
   z-index: -1;
 }
-ul {
-  background-color: transparent;
-}
-li {
+.reading_button {
   margin: 5px;
   height: 50px;
   line-height: 50px;
   border-radius: 33px;
   text-align: center;
-  padding: 5px;
-  border: 1px solid;
+  padding: 5px 15px;
   font-weight: 700;
   display: inline-block;
   font-family: 'Quicksand', sans-serif;
   font-size: 1em;
-  background-color: transparent;
+  background-color: pink;
   cursor: pointer;
+  color: #202020;
+  opacity: 50%;
 }
 input[type="text"],
 input[type="password"],

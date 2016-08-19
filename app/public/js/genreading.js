@@ -79,7 +79,7 @@ var splitting = function(vocab, content) {
     $('#jpn').click(function() {
       status = "日本語";
       if (vocabClickCounter === 0) {
-        $('#vocab-box').html("<h3>単語をクリックすると訳が見れます！</h3>");
+        $('#vocab-box').html("<h3>単語をクリックすると<br/>訳が見れます！</h3>");
       } 
       // else {
       //   $('#vocab-box').html("stuff with japanese");
