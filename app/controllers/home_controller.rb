@@ -30,10 +30,6 @@ class HomeController < ApplicationController
     session[:user_id] = nil
     session[:native_language] = nil
     session =  nil #is this enough? or should i do each attribute?
-
-    puts ' ------------------------- '
-    puts session
-    puts ' ------------------------- '
     redirect '/'
   end
 
@@ -52,12 +48,12 @@ class HomeController < ApplicationController
       session[:user_id] = user.id 
       session[:username] = user.username
       session[:native_language] = user.native_language
-        puts ' -----session.id------- '
-        puts session.id
-        puts ' -----session[:user_id]------ '
-        puts session[:user_id]
-        puts ' -----session[:native_language]------'
-        puts session[:native_language]
+        # puts ' -----session.id------- '
+        # puts session.id
+        # puts ' -----session[:user_id]------ '
+        # puts session[:user_id]
+        # puts ' -----session[:native_language]------'
+        # puts session[:native_language]
       redirect '/go'
     end
   end

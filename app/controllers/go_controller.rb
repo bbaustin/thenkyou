@@ -72,10 +72,7 @@ end
       if r.content
         ###################################################################################
         if r.content.include?(@vocab.word_eng) || r.content.include?(@vocab.word_ger) || r.content.include?(@vocab.word_jpn_k) || r.content.include?(@vocab.word_jpn_f)
-        # if r.content.include?(@vocab.word_jpn_f)
           @library = Library.create reading_id: r['id'], vocab_id: @vocab['id']
-        else 
-          puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~...nope!"
         end
       end
     end
@@ -95,23 +92,13 @@ end
   post '/:id' do |id|
     @reading = Reading.find params['id']
     @vocabs = Vocab.all 
-    @libraries = Library.all 
-
-    puts "-----------------------------------------"
-    puts Vocab.find(@libraries[11].vocab_id).word_eng
-    puts "-----------------------------------------"    
-
-    # binding.pry
+    @libraries = Library.all  
     @vocab_list = []
     @libraries.each do |lib| 
       puts "lib --> #{lib}"
       puts "lib.vocab_id --> #{lib.vocab_id}"
       if lib.reading_id == @reading.id
-        @vocab_list.push(Vocab.find(lib.vocab_id)) #this chill?
-        puts "lib.id: #{lib.id}"
-        puts "@reading.id: #{@reading.id}"
-        puts "lib.vocab_id: #{lib.vocab_id}"
-        puts "vocab list!!!! #{@vocab_list}"
+        @vocab_list.push(Vocab.find(lib.vocab_id)) 
       end
     end
     puts @vocab_list
@@ -122,20 +109,20 @@ end
   get '/:id' do  
     @reading = Reading.find params['id']  
     @nl = session[:native_language]
-    puts "------------------------------------------"
-    print "line 123: "
-    puts session[:native_language]
-    print "line 124: "
-    puts @nl
-    puts "------------------------------------------"    
+    # puts "------------------------------------------"
+    # print "line 123: "
+    # puts session[:native_language]
+    # print "line 124: "
+    # puts @nl
+    # puts "------------------------------------------"    
     erb :reading 
   end 
 
   post '/' do 
     @reading_list = []
     Reading.all.each do |reading|
-      puts reading.acct_req
-      puts reading.language
+      # puts reading.acct_req
+      # puts reading.language
       if session[:is_logged_in]   
         unless reading.language == session[:native_language]
           @reading_list.push(["<a href='/go/#{reading['id']}'> <div class='reading_button'>#{reading['title']}</div></a>"])
@@ -148,9 +135,9 @@ end
         end
       end
     end
-    p session
-    puts session[:native_language]
-    puts "^^^ Show ^^^"
+    # p session
+    # puts session[:native_language]
+    # puts "^^^ Show ^^^"
     @reading_list.to_json
   end  
 
