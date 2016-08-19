@@ -108,21 +108,21 @@ $.ajax({
           if ($('#myLang').text() === "English") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_eng) {
-                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p></div>');
               }
             }
           }  
           else if ($('#myLang').text() === "Deutsch") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
-                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p></div>');
               }
             }
           }
           else if ($('#myLang').text() === "日本語") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f))  {
-                $('#vocab-box').html('<h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_eng + '</h2><p>' + response[r].def_eng + '</p><p><em>' + response[r].usage_eng + '</em></p></div>');
               }
             }
           }
@@ -132,21 +132,21 @@ $.ajax({
           if ($('#myLang').text() === "English") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_eng) {
-                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p></div>');
               }
             }
           }  
           else if ($('#myLang').text() === "Deutsch") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
-                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p></div>');
               }
             }
           }
           else if ($('#myLang').text() === "日本語") {  // language of paragraph
             for (var r = 0; r < response.length; r++) {
               if ((this.innerHTML === response[r].word_jpn_k) || (this.innerHTML === response[r].word_jpn_f)) {
-                $('#vocab-box').html('<h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p>');
+                $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_ger + '</h2><p>' + response[r].def_ger + '</p><p><em>' + response[r].usage_ger + '</em></p></div>');
               }
             }
           }
@@ -158,10 +158,10 @@ $.ajax({
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_eng) {
                 if (response[r].word_jpn_k) {
-                  $('#vocab-box').html('<h2>' + response[r].word_jpn_k + '</h2><p><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>');
+                  $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_k + '</h2><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>');
                 }
                 else if (response[r].word_jpn_f) {
-                  $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); 
+                  $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>'); 
                 }
               }
             }
@@ -170,10 +170,10 @@ $.ajax({
             for (var r = 0; r < response.length; r++) {
               if (this.innerHTML === response[r].word_ger) {
                 if (response[r].word_jpn_k) {
-                  $('#vocab-box').html('<h2>' + response[r].word_jpn_k + '</h2><p><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>');
+                  $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_k + '</h2><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>');
                 }
                 else if (response[r].word_jpn_f) {
-                  $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); 
+                  $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>'); 
                 }
               }
             }
@@ -182,10 +182,10 @@ $.ajax({
           for (var r = 0; r < response.length; r++) {
             if (this.innerHTML === response[r].word_jpn_k){ 
             // if (response[r].word_jpn_k) {
-              $('#vocab-box').html('<h2>' + response[r].word_jpn_k + '</h2><p><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>');
+              $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_k + '</h2><small>' + response[r].word_jpn_f + '</small><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>');
             }
             else if (this.innerHTML === response[r].word_jpn_f) {
-              $('#vocab-box').html('<h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p>'); 
+              $('#vocab-box').html('<div class="vc"><h2>' + response[r].word_jpn_f + '</h2><p>' + response[r].def_jpn + '</p><p><em>' + response[r].usage_jpn + '</em></p></div>'); 
             }
           }
         }

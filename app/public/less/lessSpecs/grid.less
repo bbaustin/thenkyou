@@ -7,6 +7,7 @@ html, body {
 }
 
 h1 {
+  padding-top: 10px;
   font-size: 4em;
   margin: 0;
   color: @black;
@@ -17,6 +18,7 @@ h2 {
 	text-align: center;
   font-size: 2.5em;
   color: @black;
+  margin-bottom: 1px;
 }
 
 h3 {
@@ -52,11 +54,11 @@ img {
 
 }
 
-
 .floatR {
   max-width: 40%;
   float: right;
-  margin: 5% 3% 1% 1%;
+  margin: 5%;
+  margin-right: 10%;
 }
 
 // .containerC {
@@ -148,6 +150,7 @@ input[type="email"] {
   font-weight: 700;
   display: inline-block;
   cursor: pointer;
+  background-color: white;
 }
 
 button {
@@ -190,8 +193,29 @@ button {
 }
 
 #reading-main {
+  float: left;
+  max-width: 45%;
+  display: inline-block;
   margin: 15px;
+  margin-top: 5px;
   padding: 5px;
+  background-image: radial-gradient(rgba(255,255,255,1), rgba(255,255,255,0));
+  padding: 20px;
+  border-radius: 15%;
+  // font-weight: 100;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+#vocab-cont {
+  margin: 15px;
+  margin-top: 30px;
+  min-width: 345px;
+  max-width: 345px;
+  display: inline-block;
+  float: left;
+  text-align: center;
 }
 
 #vocab-box {
@@ -200,12 +224,27 @@ button {
   width: 343px;
   overflow: scroll;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   font-weight: 700;
   background-color: white;
   p {
-    margin: 0;
+    margin: 10px;
   }
+  h2 {
+    margin-top: 5px;
+  }
+  small {
+    margin: 0;
+    color: @grey;
+  }
+}
+
+.vc {
+  width: 320px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .welcome {
@@ -227,8 +266,9 @@ button {
 .info {
   margin: 0 auto;
   text-align: right;
-  background-image: radial-gradient(rgba(255,255,255,1), rgba(255,255,255,.25));
-  padding: 5px;
+  background-image: radial-gradient(circle farthest-corner, rgba(255,255,255,1), rgba(255,255,255,0));
+  padding: 20px;
+  padding-top: 5px;
   border-radius: 15%;
 }
 

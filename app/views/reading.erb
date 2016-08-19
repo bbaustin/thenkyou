@@ -2,19 +2,24 @@
 
 <p id="myId"><%= @reading["id"] %></p>
 <p id="myLang"><%= @reading["language"] %></p>
-<p id="reading-main"><%=@reading["content"] %></p>
-        
-<div class="center">
-  <div id="eng" class="vocabButton" >English</div>
-  <div id="ger" class="vocabButton">Deutsch</div>
-  <div id="jpn" class="vocabButton">日本語</div>
-  
-  <div id="vocab-box">
-    <h3>Click a vocab to get more info!</h3>
-    <ul></ul>
-  </div>
 
-</div>
+  <p id="reading-main"><%=@reading["content"] %></p>
+
+
+    <div id="vocab-cont">
+    <div id="eng" class="vocabButton" >English</div>
+    <div id="ger" class="vocabButton">Deutsch</div>
+    <div id="jpn" class="vocabButton">日本語</div>
+    
+      <div id="vocab-box">
+        <div class="vc">
+          <h3>Click a vocab to get more info!</h3>
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
   
   <p id="nl"><%= @nl %></p>
 

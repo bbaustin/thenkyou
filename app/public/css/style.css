@@ -6,6 +6,7 @@ body {
   font-family: 'Quicksand', sans-serif;
 }
 h1 {
+  padding-top: 10px;
   font-size: 4em;
   margin: 0;
   color: #202020;
@@ -15,6 +16,7 @@ h2 {
   text-align: center;
   font-size: 2.5em;
   color: #202020;
+  margin-bottom: 1px;
 }
 h3 {
   font-size: 1.5em;
@@ -40,7 +42,8 @@ img {
 .floatR {
   max-width: 40%;
   float: right;
-  margin: 5% 3% 1% 1%;
+  margin: 5%;
+  margin-right: 10%;
 }
 .reading_button {
   margin: 0 auto;
@@ -121,6 +124,7 @@ input[type="email"] {
   font-weight: 700;
   display: inline-block;
   cursor: pointer;
+  background-color: white;
 }
 button {
   margin: 0 auto;
@@ -155,8 +159,27 @@ button {
   display: none;
 }
 #reading-main {
+  float: left;
+  max-width: 45%;
+  display: inline-block;
   margin: 15px;
+  margin-top: 5px;
   padding: 5px;
+  background-image: radial-gradient(#ffffff, rgba(255, 255, 255, 0));
+  padding: 20px;
+  border-radius: 15%;
+  line-height: 32px;
+  font-size: 20px;
+  font-weight: 400;
+}
+#vocab-cont {
+  margin: 15px;
+  margin-top: 30px;
+  min-width: 345px;
+  max-width: 345px;
+  display: inline-block;
+  float: left;
+  text-align: center;
 }
 #vocab-box {
   border: 1px solid;
@@ -164,12 +187,26 @@ button {
   width: 343px;
   overflow: scroll;
   margin: 0 auto;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
   font-weight: 700;
   background-color: white;
 }
 #vocab-box p {
+  margin: 10px;
+}
+#vocab-box h2 {
+  margin-top: 5px;
+}
+#vocab-box small {
   margin: 0;
+  color: #979797;
+}
+.vc {
+  width: 320px;
+  text-align: center;
+  margin: 0 auto;
 }
 .welcome {
   font-weight: 700;
@@ -183,8 +220,9 @@ button {
 .info {
   margin: 0 auto;
   text-align: right;
-  background-image: radial-gradient(#ffffff, rgba(255, 255, 255, 0.25));
-  padding: 5px;
+  background-image: radial-gradient(circle farthest-corner, #ffffff, rgba(255, 255, 255, 0));
+  padding: 20px;
+  padding-top: 5px;
   border-radius: 15%;
 }
 .vocab {
